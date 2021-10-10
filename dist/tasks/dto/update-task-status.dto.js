@@ -19,4 +19,4 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateTaskStatusDto.prototype, "status", void 0);
 exports.UpdateTaskStatusDto = UpdateTaskStatusDto;
-//# sourceMappingURL=update-task-staus.dto.js.map
+//# sourceMappingURL=update-task-status.dto.js.map

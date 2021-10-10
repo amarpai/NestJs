@@ -5,66 +5,51 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TasksService = void 0;
 const common_1 = require("@nestjs/common");
-const tasks_model_1 = require("./tasks.model");
-const uuid_1 = require("uuid");
+const tasks_repository_1 = require("./tasks.repository");
+const typeorm_1 = require("@nestjs/typeorm");
 let TasksService = class TasksService {
-    constructor() {
-        this.tasks = [];
+    constructor(tasksRepositort) {
+        this.tasksRepositort = tasksRepositort;
     }
-    getAllTasks() {
-        return this.tasks;
-    }
-    getTaskbyId(id) {
-        const found = this.tasks.find((task) => task.id === id);
+    async getTaskbyId(id) {
+        const found = await this.tasksRepositort.findOne(id);
         if (!found) {
             throw new common_1.NotFoundException(`Task with ID ${id} not found`);
         }
         return found;
     }
-    deleteTaskById(id) {
-        const found = this.getTaskbyId(id);
-        this.tasks = this.tasks.filter((task) => task.id !== found.id);
+    async deleteTaskById(id) {
+        const result = await this.tasksRepositort.delete(id);
+        if (result.affected === 0) {
+            throw new common_1.NotFoundException(`Task with ID ${id} not found`);
+        }
     }
     createTask(createTaskDto) {
-        const { title, description } = createTaskDto;
-        const task = {
-            id: (0, uuid_1.v4)(),
-            title,
-            description,
-            status: tasks_model_1.TaskStatus.OPEN,
-        };
-        this.tasks.push(task);
-        return task;
+        return this.tasksRepositort.createTask(createTaskDto);
     }
-    updateTaskStatus(id, status) {
-        const task = this.getTaskbyId(id);
+    async updateTaskStatus(id, status) {
+        const task = await this.getTaskbyId(id);
         task.status = status;
+        await this.tasksRepositort.save(task);
         return task;
     }
-    getTasksWithFilter(filterDto) {
-        const { status, search } = filterDto;
-        let tasks = this.getAllTasks();
-        if (status) {
-            tasks = tasks.filter((task) => task.status === status);
-        }
-        if (search) {
-            tasks = tasks.filter((task) => {
-                if (task.title.includes(search) || task.description.includes(search)) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            });
-        }
-        return tasks;
+    getTasks(filterDto) {
+        return this.tasksRepositort.getTask(filterDto);
     }
 };
 TasksService = __decorate([
-    (0, common_1.Injectable)()
+    (0, common_1.Injectable)(),
+    __param(0, (0, typeorm_1.InjectRepository)(tasks_repository_1.TasksRepository)),
+    __metadata("design:paramtypes", [tasks_repository_1.TasksRepository])
 ], TasksService);
 exports.TasksService = TasksService;
 //# sourceMappingURL=tasks.service.js.map

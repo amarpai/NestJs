@@ -1,1 +1,1 @@
-{"version":3,"file":"update-task-staus.dto.js","sourceRoot":"","sources":["../../../src/tasks/dto/update-task-staus.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAAyC;AACzC,gDAA4C;AAE5C,MAAa,mBAAmB;CAG/B;AADC;IADC,IAAA,wBAAM,EAAC,wBAAU,CAAC;;mDACA;AAFrB,kDAGC"}
+{"version":3,"file":"update-task-staus.dto.js","sourceRoot":"","sources":["../../../src/tasks/dto/update-task-staus.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAAyC;AACzC,0DAAiD;AAEjD,MAAa,mBAAmB;CAG/B;AADC;IADC,IAAA,wBAAM,EAAC,6BAAU,CAAC;;mDACA;AAFrB,kDAGC"}
