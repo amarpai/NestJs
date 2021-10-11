@@ -18,6 +18,7 @@ const tasks_service_1 = require("./tasks.service");
 const create_task_dto_1 = require("./dto/create-task.dto");
 const get_task_filter_to_1 = require("./dto/get-task-filter.to");
 const update_task_status_dto_1 = require("./dto/update-task-status.dto");
+const passport_1 = require("@nestjs/passport");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
@@ -77,6 +78,7 @@ __decorate([
 ], TasksController.prototype, "updateTaskStatus", null);
 TasksController = __decorate([
     (0, common_1.Controller)('tasks'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)()),
     __metadata("design:paramtypes", [tasks_service_1.TasksService])
 ], TasksController);
 exports.TasksController = TasksController;

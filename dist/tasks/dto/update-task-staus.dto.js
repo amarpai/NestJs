@@ -11,11 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateTaskStatusDto = void 0;
 const class_validator_1 = require("class-validator");
-const tasks_staus_enum_1 = require("../tasks.staus.enum");
+const tasks_model_1 = require("../tasks.model");
 class UpdateTaskStatusDto {
 }
 __decorate([
-    (0, class_validator_1.IsEnum)(tasks_staus_enum_1.TaskStatus),
+    (0, class_validator_1.IsEnum)(tasks_model_1.TaskStatus),
     __metadata("design:type", String)
 ], UpdateTaskStatusDto.prototype, "status", void 0);
 exports.UpdateTaskStatusDto = UpdateTaskStatusDto;
