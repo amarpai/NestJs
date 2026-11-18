@@ -1,0 +1,81 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;background:#0b1020}
+  .b{width:1584px;height:396px;position:relative;overflow:hidden;font-family:Inter,sans-serif;
+     background:radial-gradient(900px 400px at 85% 0%,#1d2a5c 0%,transparent 60%),
+                radial-gradient(700px 380px at 10% 110%,#0f3b4a 0%,transparent 60%),
+                linear-gradient(120deg,#0a0f1f 0%,#0e1530 55%,#121a3a 100%);}
+  svg{position:absolute;inset:0}
+  .kicker{position:absolute;left:640px;top:58px;font:500 15px 'JetBrains Mono';letter-spacing:.28em;color:#7dd3c0}
+  .h{position:absolute;left:638px;top:84px;font:700 46px/1.1 'Inter Display',Inter;color:#f4f6ff;letter-spacing:-.01em}
+  .h em{font-style:normal;background:linear-gradient(90deg,#7dd3c0,#a8b8ff);-webkit-background-clip:text;color:transparent}
+  .node{position:absolute;width:250px}
+  .node .t{font:600 19px Inter;color:#f4f6ff}
+  .node .s{font:400 14.5px Inter;color:#aab3d6;margin-top:3px}
+  .node .c{font:400 11.5px 'JetBrains Mono';color:#5f6b98;margin-top:6px;letter-spacing:.06em}
+  .code{position:absolute;left:70px;top:44px;font:400 13px/1.75 'JetBrains Mono';color:#3c4a7a}
+  .code b{color:#7dd3c0;font-weight:400} .code i{color:#a8b8ff;font-style:normal}
+</style></head><body>
+<div class="b">
+  <svg width="1584" height="396" viewBox="0 0 1584 396">
+    <defs>
+      <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="1" r="1" fill="#24305a"/>
+      </pattern>
+      <linearGradient id="arc" x1="0" x2="1">
+        <stop offset="0" stop-color="#7dd3c0"/><stop offset="1" stop-color="#a8b8ff"/>
+      </linearGradient>
+      <radialGradient id="glow"><stop offset="0" stop-color="#7dd3c0" stop-opacity=".55"/><stop offset="1" stop-color="#7dd3c0" stop-opacity="0"/></radialGradient>
+      <radialGradient id="glow2"><stop offset="0" stop-color="#a8b8ff" stop-opacity=".55"/><stop offset="1" stop-color="#a8b8ff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1584" height="396" fill="url(#dots)" opacity=".7"/>
+    <!-- Goa coastline waves, lower-left -->
+    <g fill="none" stroke="#1f5a66" stroke-width="1.2" opacity=".55">
+      <path d="M0 300 C 80 285, 140 315, 220 300 S 360 285, 440 300"/>
+      <path d="M0 325 C 80 310, 140 340, 220 325 S 360 310, 440 325"/>
+      <path d="M0 350 C 80 335, 140 365, 220 350 S 360 335, 440 350"/>
+      <path d="M0 375 C 80 360, 140 390, 220 375 S 360 360, 440 375"/>
+    </g>
+    <!-- faint latitude lines on right -->
+    <g fill="none" stroke="#2a376a" stroke-width="1" opacity=".5">
+      <ellipse cx="1500" cy="40" rx="360" ry="120"/>
+      <ellipse cx="1500" cy="40" rx="260" ry="86"/>
+      <ellipse cx="1500" cy="40" rx="160" ry="53"/>
+    </g>
+    <!-- journey arc -->
+    <path id="route" d="M560 262 C 700 185, 880 185, 1030 236 C 1180 180, 1360 170, 1490 200" fill="none" stroke="url(#arc)" stroke-width="2.2" stroke-dasharray="2 7" stroke-linecap="round"/>
+    <circle cx="560" cy="262" r="26" fill="url(#glow)"/><circle cx="560" cy="262" r="6" fill="#7dd3c0"/>
+    <circle cx="1030" cy="236" r="26" fill="url(#glow2)"/><circle cx="1030" cy="236" r="6" fill="#b9c4ff"/>
+    <circle cx="1490" cy="200" r="34" fill="url(#glow2)"/><circle cx="1490" cy="200" r="8" fill="#ffffff"/>
+    <circle cx="1490" cy="200" r="15" fill="none" stroke="#ffffff" stroke-opacity=".5"/>
+  </svg>
+
+  <div class="code">
+    <b>const</b> profile = {<br>
+    &nbsp;&nbsp;roots: <i>"Goa"</i>,<br>
+    &nbsp;&nbsp;base: <i>"Paris"</i>,<br>
+    &nbsp;&nbsp;stack: [<i>"tech"</i>, <i>"business"</i>]<br>
+    };
+  </div>
+
+  <div class="kicker">TECHNOLOGY &nbsp;×&nbsp; FINANCE &nbsp;×&nbsp; STRATEGY</div>
+  <div class="h">Engineering ideas into <em>business value.</em></div>
+
+  <div class="node" style="left:548px;top:288px">
+    <div class="t">Goa University</div>
+    <div class="s">B.E. Information Technology</div>
+    <div class="c">15.49°N · 73.83°E</div>
+  </div>
+  <div class="node" style="left:1018px;top:262px">
+    <div class="t">IAE Paris · Sorbonne</div>
+    <div class="s">MBA</div>
+    <div class="c">48.84°N · 2.34°E</div>
+  </div>
+  <div class="node" style="left:1276px;top:228px;text-align:right;width:226px">
+    <div class="t">Société Générale</div>
+    <div class="s">IT Engineer · Paris</div>
+    <div class="c">NOW</div>
+  </div>
+</div>
+</body></html>
